@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+    org.springframework.security: info
+
+spring:
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          me-client:
+            require-authorization-consent: false
+            require-proof-key: false
+            registration:
+              # aditi | panthi
+              client-id: aditi
+              client-secret: "{bcrypt}$2a$10$7WRxKtxS9c76om4SFWHhquuMnIz6x0g7RTf5P1qq6bwoCn8vv0Z4G"
+              authorization-grant-types: client_credentials,authorization_code,refresh_token
+              redirect-uris: http://127.0.0.1:8082/login/oauth2/code/spring
+              scopes: user.read,user.write,openid
+              client-authentication-methods: client_secret_basic
